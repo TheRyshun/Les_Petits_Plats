@@ -1,0 +1,14 @@
+.logo {
+    @include flex(flex, center, center);
+    flex-direction: column;
+    &__HatChef {
+        background-image: url("/images/chef.png");
+        height: 64px;
+        width: 60px;
+        }
+        h1 {
+            color: $logo;
+            font-weight: bold;
+            @include size-l;
+        }
+}

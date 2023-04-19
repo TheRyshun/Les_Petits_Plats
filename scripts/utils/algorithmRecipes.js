@@ -5,8 +5,16 @@ import {
   selectedUstensiles,
 } from "./tag.js";
 
-function selectMethodFilter() {
-  // Method tableau
+/**
+ Function : TagFilter
+ 
+ * This function filters the recipes based on selected ingredients, appliances, and utensils.
+ 
+ * @returns {Array} An array of filtered recipes.
+ */
+
+function TagFilter() {
+  
   const filteredRecettes = recipes.filter((recette) => {
     return (
       selectedIngredients.every((ingredient) => {
@@ -28,4 +36,23 @@ function selectMethodFilter() {
   });
   return filteredRecettes;
 }
-export { selectMethodFilter };
+
+/**
+ Function : searchFilter
+
+ * Filters an array of recipe objects based on a search query.
+ 
+ * @param {string} searchQuery - The search query to filter the recipes by.
+ * @param {Array} recipes - An array of recipe objects to filter.
+ * @returns {Array} An array of recipe objects that match the search query.
+ */
+
+const searchFilter = (searchQuery, recipes) => {
+  const searchFilteredRecipes = recipes.filter((recipe) => {
+    return recipe.name.toLowerCase().includes(searchQuery.toLowerCase());
+  });
+
+  return searchFilteredRecipes;
+}
+
+export { TagFilter, searchFilter };

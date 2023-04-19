@@ -9,6 +9,18 @@ const appareilsList = document.querySelector("#appareilsList");
 const ustensilsInput = document.querySelector("#utensiles-input");
 const ustensilsList = document.querySelector("#ustensilesList");
 
+
+/* 
+Function : filterIAU
+
+ * @param void
+ * @import : ingredientsInput, appareilsInput, ustensilsInput, getIngredients(), getAppareils(), getUstensils(), updateItemList()
+ * @returns {void}
+ 
+   Function that filters ingredients, appareils and ustensils based on user input
+   and updates the corresponding lists on the page.
+ */
+
 const filterIAU = () => {
   ingredientsInput.addEventListener("input", () => {
     const searchText = ingredientsInput.value.toLowerCase();
@@ -35,6 +47,13 @@ const filterIAU = () => {
   });
 };
 
+/**
+ * Update a given list with new items.
+ *
+ * @param {Array} items - The items to display in the list.
+ * @param {HTMLElement} list - The list to update.
+ * @returns {void}
+ */
 
 const updateItemList = (items, list) => {
   list.innerHTML = "";

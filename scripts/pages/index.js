@@ -2,6 +2,7 @@ import { getRecettes } from "../api.js";
 import { cardFactory } from "../factories/cardFactory.js";
 import { getAppareils, getIngredients, getUstensils } from "../utils/array.js";
 import { filterIAU } from "../utils/filter.js";
+import { search } from "../utils/search.js";
 import { SetTagRecipes } from "../utils/tag.js";
 
 const galery = document.querySelector("#galery");
@@ -67,5 +68,6 @@ const initFiltres = () => {
   FilterUstensil(ustensils);
   filterIAU();
   SetTagRecipes();
+  search();
 };
 initFiltres();

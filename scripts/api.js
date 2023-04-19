@@ -7,7 +7,6 @@ function getRecettes() {
         let o = {
             id: r.id,
             name: r.name,
-            //servings : r.servings,
             ingredients: r.ingredients,
             time: r.time,
             description: r.description,

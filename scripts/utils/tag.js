@@ -1,5 +1,6 @@
 import { cardFactory } from "../factories/cardFactory.js";
-import { selectMethodFilter } from "./algorithmRecipes.js";
+import { TagFilter } from "./algorithmRecipes.js";
+
 const ingredients = document.querySelectorAll("#ingredientsList");
 const appareils = document.querySelectorAll("#appareilsList");
 const ustensiles = document.querySelectorAll("#ustensilesList");
@@ -9,6 +10,19 @@ let selectedAppareils = [];
 let selectedUstensiles = [];
 
 const galery = document.querySelector("#galery");
+
+/**
+ Function : SetTagRecipes
+
+ * Attaches click event listeners to each ingredient, appareil, and ustensile item,
+ * adds the selected item's name to its corresponding array and creates a tag with its name,
+ * and updates the gallery of recipes based on selected filters.
+
+ * @param {Array} ingredient
+ * @param {Array} appareil
+ * @param {Array} ustensile
+ * @returns {void}
+ */
 
 function SetTagRecipes() {
   ingredients.forEach((ingredient) => {
@@ -35,7 +49,7 @@ function SetTagRecipes() {
     });
   });
 
-  ustensiles.forEach((ustensile) => {
+  ustensiles.forEach((ustensile ) => {
     ustensile.addEventListener("click", (event) => {
       if (event.target.innerText.includes("\n")) {
         console.log("Choisir un ustensile");
@@ -48,8 +62,18 @@ function SetTagRecipes() {
   });
 }
 
+/**
+ Function : createTag
+
+ * Create a new tag element in the form of a card.
+
+ * @param {string} name - The name of the tag to create.
+ * @param {string} type - The type of tag being created (ingredients, appareils, ustensiles).
+ * @returns {void}
+ */
+
 const createTag = (name, type) => {
-  // Créer une carte HTML
+
   const card = document.createElement("div");
   card.classList.add("card");
   card.setAttribute("id-name", name);
@@ -80,6 +104,16 @@ const createTag = (name, type) => {
   row.appendChild(card);
 };
 
+/**
+ Function : removeTag
+
+ * Removes a tag from the selected tags array depending on the tag type (ingredients, appareils, or ustensiles).
+
+ * @param {string} name - The name of the tag to remove.
+ * @param {string} type - The type of the tag to remove (ingredients, appareils, or ustensiles).
+ * @returns {void}
+ */
+
 const removeTag = (name, type) => {
   if (type === "ingredients") {
     selectedIngredients = selectedIngredients.filter(
@@ -100,11 +134,10 @@ const removeTag = (name, type) => {
 };
 
 const updateGallery = () => {
-  // Method tableau et Native
 
   galery.innerHTML = "";
 
-  selectMethodFilter().forEach((r) => {
+  TagFilter().forEach((r) => {
     const card = cardFactory(r);
     galery.appendChild(card);
   });

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+    <script type="module" src="./scripts/pages/index.js" defer></script>
+    <script type="module" src="./scripts/api.js" defer></script>
+    <script type="module" src="./scripts/utils/algorithmRecipes.js" defer></script>
+  </head>
+
+  <body>
+    <div class="logo">
+      <i class="logo__HatChef"></i>
+      <h1>Les Petits Plats</h1>
+    </div>
+
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="Rechercher une recette" />
+      <button><i class="fa fa-xl fa-search"></i></button>
+    </div>
+
+
+    <div class="row">
+<!--
+      <div class="card"  id="ingredients">
+        <div class="card-header">
+          <div class="card-title">
+            Informational
+          </div>
+          <div class="card-close">
+            <button>
+              <i class="fa-sharp fa-regular fa-circle-xmark"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+-->
+    </div>
+
+
+    <div class="dropdowns-group">
+      <!-- By Ingredients -->
+      <div class="dropdown ingredients-select">
+          <button class="button ingredients-button">
+              <p class="text text-ingredients">Ingrédients</p>
+              <input type="text" class="dropdown-input" id="ingredients-input" placeholder="Rechercher un ingédient">
+              <div class="icon-container">
+                  <i class="fa-solid fa-chevron-up"></i>
+                  <i class="fa-solid fa-chevron-down"></i>
+              </div>
+          </button>
+          <div class="list-container ingredients-list-container">
+              <div class="dropdown-list" id="ingredientsList">
+              </div>
+          </div>
+      </div>
+
+      <!-- By Appliances -->
+      <div class="dropdown appliances-select">
+          <button class="button appliances-button">
+              <p class="text text-appliances">Appareils</p>
+              <input type="text" name="appliances-input" class="dropdown-input" id="appliances-input" placeholder="Rechercher un appareil">
+              <div class="icon-container appliances-icon-container">
+                  <i class="fa-solid fa-chevron-up"></i>
+                  <i class="fa-solid fa-chevron-down"></i>
+              </div>
+          </button>
+          <div class="list-container appliances-list-container">
+              <div class="dropdown-list" id="appareilsList">
+              </div>
+          </div>
+      </div>
+
+      <!-- By Utensiles -->
+      <div class="dropdown utensiles-select">
+          <button class="button utensiles-button">
+              <p class="text text-utensiles">Utensiles</p>
+              <input type="text" name="utensiles-input" class="dropdown-input" id="utensiles-input" placeholder="Rechercher un utensile">
+              <div class="icon-container utensiles-icon-container">
+                  <i class="fa-solid fa-chevron-up"></i>
+                  <i class="fa-solid fa-chevron-down"></i>
+              </div>
+          </button>
+          <div class="list-container utensiles-list-container">
+              <div class="dropdown-list" id="ustensilesList">
+              </div>
+          </div>
+      </div>
+
+  </div>
+
+    <div class="recipes" id="galery">
+<!--
+      <div class="recipe">
+          <div class="recipes__Img">
+          </div>
+          <div class="recipes__Container">
+              <h2 class="recipes__Title">
+                  Limonade de coco
+              </h2>
+              <div class="recipes__Duration">
+                  <i class="recipe_duration-icon fa-solid fa-clock"></i>
+                  <span>
+                    10 min
+                  </span>
+              </div>
+              <div class="recipes__Ingredients">
+                  <p class="ingredient">
+                      <span class="ingredient_name"><strong> Lait de coco: </strong>400ml</span> 
+                      <span class="ingredient_name"><strong> Lait de coco: </strong>400ml</span> 
+                      <span class="ingredient_name"><strong> Lait de coco: </strong>400ml</span> 
+                      <span class="ingredient_name"><strong> Lait de coco: </strong>400ml</span> 
+                      <span class="ingredient_name"><strong> Lait de coco: </strong>400ml</span> 
+                  </p>
+              </div>
+              <p class="recipes__Preparation">
+                  Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée.
+              </p>
+          </div>
+        </div>
+-->
+  </div>
+
+  </body>
+</html>

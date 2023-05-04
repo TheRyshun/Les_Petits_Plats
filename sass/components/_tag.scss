@@ -1,0 +1,59 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.card {
+  background-color: RED;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  color: #fff;
+}
+
+.card-title {
+  text-align: center;
+  @include size-lm;
+  font-weight: bold;
+  color: white;
+}
+
+.card-close {
+  button {
+    margin-left: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    i {
+      font-size: 24px;
+      color: white;
+    }
+  }
+}
+
+#ingredients {
+  background-color: #3282f7;
+}
+
+#appareils {
+  background-color: #68d9a4;
+}
+
+#ustensiles {
+  background-color: #ed6454;
+}
+
+@media screen and (max-width: 620px) {
+  .heading {
+    padding: 20px;
+    font-size: 20px;
+  }
+}

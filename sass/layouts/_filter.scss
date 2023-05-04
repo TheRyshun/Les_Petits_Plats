@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+.dropdowns-group {
+  display: flex;
+  margin-top: 25px;
+  font-family: 'Lato', sans-serif;
+  ::placeholder {
+    color: #FFFFFF;
+    font-size: 18px;
+    opacity: 70%;
+  }
+}
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  margin-bottom: auto;
+}
+
+.dropdown-input {
+  font-size: 18px;
+}
+
+.button {
+  height: 50px;
+  min-width: 150px;
+  border-radius: 5px;
+  padding: 0 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  color: #fff;
+  font-weight: 500;
+}
+
+.button .text {
+  @include size-lm;
+  font-weight: bold;
+  flex-grow: 1;
+  text-align: start;
+}
+
+.button .dropdown-input {
+  display: none;
+  flex-grow: 1;
+  margin-right: 1rem;
+  outline: none;
+  border: none;
+  border-radius: 0.25rem;
+  color: #fff;
+}
+
+.button .fa-chevron-up {
+  display: none;
+}
+
+
+.list-container {
+  display: none;
+  overflow: hidden;
+}
+
+.dropdown-list {
+  list-style-type: none;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.item {
+  color: white;
+  cursor: pointer;
+  //background-image: linear-gradient(white, white);
+  //background-size: 0% 2px;
+  //background-repeat: no-repeat;
+  //transition: background-size 1s;
+  margin-left: 15%;
+  margin-right: 15%;
+  //background-position: 0 calc(100% - 0px);
+}
+
+.item:hover {
+//  background-size: 70% 2px;
+}
+
+.ingredients-select,
+.ingredients-button {
+  background-color: #3282f7;
+}
+.ingredients-button .dropdown-input { 
+  background-color: #3282f7;
+}
+
+.appliances-select,
+.appliances-button {
+  background-color: #68d9a4;
+}
+.appliances-button .dropdown-input {
+  background-color: #68d9a4;
+}
+
+.utensiles-select,
+.utensiles-button {
+  background-color: #ed6454;
+}
+.utensiles-button .dropdown-input {
+  background-color: #ed6454;
+}
+
+#ingredientsList {
+  background-color: #3282f7;
+}
+
+#appareilsList {
+  background-color: #68d9a4;
+}
+
+#ustensilesList {
+  background-color: #ed6454;
+}
+
+@media screen and (min-width: 768px) {
+
+  .dropdown {
+    display: flex;
+    flex-direction: column;
+    margin-right: 15px;
+    margin-bottom: auto;
+    position: relative;
+  }
+
+  .dropdown:hover .dropdown-input {
+    display: flex;
+  }
+  
+  .dropdown:hover .text {
+    display: none;
+  }
+  
+  .dropdown:hover .list-container {
+    display: flex;
+  }
+
+  .button .dropdown-input {
+    padding-right: 300px;
+  }
+
+  .dropdown-list {
+    position: absolute;
+    width: 100%;
+    border-radius: 5px;
+    top: 45px;
+  }  
+
+  .button {
+    border-radius: 5px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .dropdown:hover .icon-container .fa-chevron-down {
+    display: none;
+  }
+  .dropdown:hover .icon-container .fa-chevron-up {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .button .dropdown-input {
+    padding-right: 150px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .dropdowns-group {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .dropdown-input {
+    font-size: 14px;
+  }
+
+  .button.active .dropdown-input {
+    display: flex;
+  }
+  
+  .button.active .text {
+    display: none;
+  }
+  
+  .button.active + .list-container {
+    display: flex;
+  }
+
+  .button.active .icon-container .fa-chevron-down {
+    display: none;
+  }
+  .button.active .icon-container .fa-chevron-up {
+    display: flex;
+  }
+  
+}

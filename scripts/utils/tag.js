@@ -11,28 +11,20 @@ let selectedUstensiles = [];
 
 const galery = document.querySelector("#galery");
 
-/**
- Function : SetTagRecipes
-
- * Attaches click event listeners to each ingredient, appareil, and ustensile item,
- * adds the selected item's name to its corresponding array and creates a tag with its name,
- * and updates the gallery of recipes based on selected filters.
-
- * @param {Array} ingredient
- * @param {Array} appareil
- * @param {Array} ustensile
- * @returns {void}
- */
-
 function SetTagRecipes() {
   ingredients.forEach((ingredient) => {
     ingredient.addEventListener("click", (event) => {
       if (event.target.innerText.includes("\n")) {
         console.log("Choisir un ingrédient");
       } else {
-        selectedIngredients.push(event.target.innerText);
-        createTag(event.target.innerText, "ingredients");
-        updateGallery();
+        const name = event.target.innerText;
+        if (!selectedIngredients.includes(name)) {
+          selectedIngredients.push(name);
+          createTag(name, "ingredients");
+          updateGallery();
+        } else {
+          console.log("Déjà présent");
+        }
       }
     });
   });
@@ -42,9 +34,12 @@ function SetTagRecipes() {
       if (event.target.innerText.includes("\n")) {
         console.log("Choisir un appareil");
       } else {
-        selectedAppareils.push(event.target.innerText);
-        createTag(event.target.innerText, "appareils");
-        updateGallery();
+        const name = event.target.innerText;
+        if (!selectedAppareils.includes(name)) {
+          selectedAppareils.push(name);
+          createTag(name, "appareils");
+          updateGallery();
+        }
       }
     });
   });
@@ -54,23 +49,16 @@ function SetTagRecipes() {
       if (event.target.innerText.includes("\n")) {
         console.log("Choisir un ustensile");
       } else {
-        selectedUstensiles.push(event.target.innerText);
-        createTag(event.target.innerText, "ustensiles");
-        updateGallery();
+        const name = event.target.innerText;
+        if (!selectedUstensiles.includes(name)) {
+          selectedUstensiles.push(name);
+          createTag(name, "ustensiles");
+          updateGallery();
+        }
       }
     });
   });
 }
-
-/**
- Function : createTag
-
- * Create a new tag element in the form of a card.
-
- * @param {string} name - The name of the tag to create.
- * @param {string} type - The type of tag being created (ingredients, appareils, ustensiles).
- * @returns {void}
- */
 
 const createTag = (name, type) => {
 
@@ -104,15 +92,6 @@ const createTag = (name, type) => {
   row.appendChild(card);
 };
 
-/**
- Function : removeTag
-
- * Removes a tag from the selected tags array depending on the tag type (ingredients, appareils, or ustensiles).
-
- * @param {string} name - The name of the tag to remove.
- * @param {string} type - The type of the tag to remove (ingredients, appareils, or ustensiles).
- * @returns {void}
- */
 
 const removeTag = (name, type) => {
   if (type === "ingredients") {

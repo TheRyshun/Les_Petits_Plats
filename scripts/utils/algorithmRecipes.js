@@ -4,17 +4,9 @@ import {
   selectedIngredients,
   selectedUstensiles,
 } from "./tag.js";
-
-/**
- Function : TagFilter
- 
- * This function filters the recipes based on selected ingredients, appliances, and utensils.
- 
- * @returns {Array} An array of filtered recipes.
- */
+const searchInput = document.getElementById("search-input");
 
 function TagFilter() {
-  
   const filteredRecettes = recipes.filter((recette) => {
     return (
       selectedIngredients.every((ingredient) => {
@@ -31,21 +23,12 @@ function TagFilter() {
         return recette.ustensils.some((recipeUstensil) => {
           return recipeUstensil.toLowerCase().includes(ustensile.toLowerCase());
         });
-      })
+      }) &&
+      recette.name.toLowerCase().includes(searchInput.value.toLowerCase())
     );
   });
   return filteredRecettes;
 }
-
-/**
- Function : searchFilter
-
- * Filters an array of recipe objects based on a search query.
- 
- * @param {string} searchQuery - The search query to filter the recipes by.
- * @param {Array} recipes - An array of recipe objects to filter.
- * @returns {Array} An array of recipe objects that match the search query.
- */
 
 const searchFilter = (searchQuery, recipes) => {
   const searchFilteredRecipes = recipes.filter((recipe) => {
@@ -53,6 +36,6 @@ const searchFilter = (searchQuery, recipes) => {
   });
 
   return searchFilteredRecipes;
-}
+};
 
 export { TagFilter, searchFilter };

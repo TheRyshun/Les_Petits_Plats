@@ -1,10 +1,10 @@
 import { recipes } from "../data/recipes.js";
 
-function getRecettes() {
+const getRecettes = () => {
     let data = [];
 
     recipes.forEach((r) => {
-        let o = {
+        let recipes = {
             id: r.id,
             name: r.name,
             ingredients: r.ingredients,
@@ -14,7 +14,7 @@ function getRecettes() {
             ustensils: r.ustensils
         }
 
-        data.push(o);
+        data.push(recipes);
     })
     return data;
 }

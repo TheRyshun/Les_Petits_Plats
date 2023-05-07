@@ -11,7 +11,15 @@ let selectedUstensiles = [];
 
 const galery = document.querySelector("#galery");
 
-function SetTagRecipes() {
+/**
+Function : SetTagRecipes
+
+This function allows you to manage click events on ingredients, appliances and utensils on the page. 
+It adds the selected items to the appropriate tables and then updates the gallery accordingly.
+@return {void} - This function returns no value.
+*/
+
+const SetTagRecipes = () =>{
   ingredients.forEach((ingredient) => {
     ingredient.addEventListener("click", (event) => {
       if (event.target.innerText.includes("\n")) {
@@ -60,6 +68,15 @@ function SetTagRecipes() {
   });
 }
 
+/**
+ Function : createTag
+ * Create a new tag element in the form of a card.
+
+ * @param {string} name - The name of the tag to create.
+ * @param {string} type - The type of tag being created (ingredients, appareils, ustensiles).
+ * @returns {void}
+ */
+
 const createTag = (name, type) => {
 
   const card = document.createElement("div");
@@ -92,6 +109,13 @@ const createTag = (name, type) => {
   row.appendChild(card);
 };
 
+/**
+ *  Function : removeTag
+Deletes a given tag based on its name and type.
+@param {string} name - The name of the tag to be deleted.
+@param {string} type - The type of tag to be removed (ingredients, appliances, utensils).
+@returns {void}
+*/
 
 const removeTag = (name, type) => {
   if (type === "ingredients") {
@@ -112,6 +136,11 @@ const removeTag = (name, type) => {
   updateGallery();
 };
 
+/**
+  *  Function : updateGallery
+Updates the map gallery with the filtered tags.
+@returns {void}
+*/
 const updateGallery = () => {
 
   galery.innerHTML = "";

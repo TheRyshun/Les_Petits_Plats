@@ -11,6 +11,12 @@ const searchInput = document.getElementById("search-input");
 const searchButton = document.querySelector(".search-bar button");
 const galery = document.querySelector("#galery");
 
+/**
+ Function : search
+Searches recipes based on selected tags and text entered in the search bar.
+@returns {void}
+*/
+
 const search = () => {
   var searchQuery = searchInput.value;
   const filteredRecipes = TagFilter();

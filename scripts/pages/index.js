@@ -17,7 +17,15 @@ recettes.forEach((r) => {
   galery.appendChild(card);
 });
 
+
 const dropIngredient = document.querySelector("#ingredientsList");
+
+/**
+
+Function : FilterIngrédient
+Create buttons for each ingredient and add them to the list of filtered ingredients.
+@param {array} ingredients - The list of ingredients to be displayed.
+*/
 
 const FilterIngrédient = (ingredients) => {
   ingredients.forEach((i) => {
@@ -31,6 +39,12 @@ const FilterIngrédient = (ingredients) => {
 
 const dropAppareils = document.querySelector("#appareilsList");
 
+/**
+Function : FilterAppareil
+Create buttons for each device and add them to the list of filtered devices.
+@param {array} appareils - The list of devices to be displayed.
+*/
+
 const FilterAppareil = (appareils) => {
   appareils.forEach((i) => {
     const button = document.createElement("p");
@@ -42,6 +56,12 @@ const FilterAppareil = (appareils) => {
 };
 
 const dropUstensils = document.querySelector("#ustensilesList");
+
+/**
+Function : FilterUstensil
+Create buttons for each utensil and add them to the list of filtered utensils.
+@param {array} ustensils - The list of utensils to be displayed.
+*/
 
 const FilterUstensil = (ustensils) => {
   ustensils.forEach((i) => {

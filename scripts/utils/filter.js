@@ -48,8 +48,8 @@ const filterIAU = () => {
 };
 
 /**
+ *  Function : updateItemList
  * Update a given list with new items.
- *
  * @param {Array} items - The items to display in the list.
  * @param {HTMLElement} list - The list to update.
  * @returns {void}

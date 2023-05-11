@@ -8,20 +8,13 @@ import {
 } from "./tag.js";
 
 const searchInput = document.getElementById("search-input");
-const searchButton = document.querySelector(".search-bar button");
 const galery = document.querySelector("#galery");
 
-/**
- Function : search
-Searches recipes based on selected tags and text entered in the search bar.
-@returns {void}
-*/
-
 const search = () => {
-  var searchQuery = searchInput.value;
+  const searchQuery = searchInput.value;
   const filteredRecipes = TagFilter();
 
-  if (searchQuery.length >= 3) {
+  if (searchQuery.length >= 3 && selectedIngredients.length <= 0) {
     const searchFilteredRecipes = searchFilter(searchQuery, filteredRecipes);
 
     galery.innerHTML = "";
@@ -29,18 +22,38 @@ const search = () => {
       const card = cardFactory(r);
       galery.appendChild(card);
     });
-  } else if (
-    selectedIngredients.length > 0 ||
-    selectedAppareils.length > 0 ||
-    selectedUstensiles.length > 0
+  }
+  if (
+    (selectedIngredients.length > 0 ||
+      selectedAppareils.length > 0 ||
+      selectedUstensiles.length > 0) &&
+      searchQuery.length >= 3
   ) {
-    const filterSearchRecipes = TagFilter();
     galery.innerHTML = "";
-    filterSearchRecipes.forEach((r) => {
+    filteredRecipes.forEach((r) => {
       const card = cardFactory(r);
       galery.appendChild(card);
     });
-  } else {
+  }
+
+  if (
+    (selectedIngredients.length > 0 ||
+      selectedAppareils.length > 0 ||
+      selectedUstensiles.length > 0) &&
+      searchQuery.length == 0
+  ) {
+    galery.innerHTML = "";
+    filteredRecipes.forEach((r) => {
+      const card = cardFactory(r);
+      galery.appendChild(card);
+    });
+  }
+  if (
+    searchQuery.length === 0 &&
+    selectedIngredients.length <= 0 &&
+    selectedAppareils.length <= 0 &&
+    selectedUstensiles.length <= 0
+  ) {
     galery.innerHTML = "";
     recipes.forEach((r) => {
       const card = cardFactory(r);
@@ -48,7 +61,5 @@ const search = () => {
     });
   }
 };
-
-searchButton.addEventListener("click", search);
-
+searchInput.addEventListener("input", search);
 export { search };

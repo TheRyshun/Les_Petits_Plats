@@ -52,7 +52,7 @@ const cardFactory = (data) => {
       strong.textContent = i.ingredient + " ";
       li.appendChild(strong);
 
-      if (i.quantity && i.quantity) {
+      if (i.quantity) {
         text.textContent += " : " + " " + i.quantity;
       }
       if (i.quantity && i.unit) {

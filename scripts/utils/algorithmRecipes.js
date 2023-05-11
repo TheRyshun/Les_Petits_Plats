@@ -35,7 +35,7 @@ const TagFilter = () => {
     );
   });
   return filteredRecettes;
-}
+};
 
 /**
 
@@ -46,12 +46,20 @@ Filters recipes according to the search query.
 @returns {array} searchFilteredRecipes - Recipes filtered by search.
 */
 
-const searchFilter = (searchQuery, recipes) => {
-  const searchFilteredRecipes = recipes.filter((recipe) => {
-    return recipe.name.toLowerCase().includes(searchQuery.toLowerCase());
+const searchFilter = (searchQuery) => {
+  const searchFilteredRecipes = TagFilter().filter((recipe) => {
+    const ingredientsMatch = recipe.ingredients.some((ingredient) => {
+      return ingredient.ingredient
+        .toLowerCase()
+        .includes(searchQuery.toLowerCase());
+    });
+    return (
+      recipe.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      recipe.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      ingredientsMatch
+    );
   });
-
   return searchFilteredRecipes;
-};
+};  
 
 export { TagFilter, searchFilter };

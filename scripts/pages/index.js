@@ -28,7 +28,8 @@ Create buttons for each ingredient and add them to the list of filtered ingredie
 */
 
 const FilterIngrédient = (ingredients) => {
-  ingredients.forEach((i) => {
+  const uniqueIngredients = new Set(ingredients);
+  uniqueIngredients.forEach((i) => {
     const button = document.createElement("p");
     button.classList.add("item");
     button.setAttribute("id-name", i);
@@ -46,7 +47,8 @@ Create buttons for each device and add them to the list of filtered devices.
 */
 
 const FilterAppareil = (appareils) => {
-  appareils.forEach((i) => {
+  const uniqueAppareils = new Set(appareils);
+  uniqueAppareils.forEach((i) => {
     const button = document.createElement("p");
     button.classList.add("item");
     button.setAttribute("id-name", i);
@@ -54,6 +56,7 @@ const FilterAppareil = (appareils) => {
     dropAppareils.appendChild(button);
   });
 };
+
 
 const dropUstensils = document.querySelector("#ustensilesList");
 
@@ -64,7 +67,8 @@ Create buttons for each utensil and add them to the list of filtered utensils.
 */
 
 const FilterUstensil = (ustensils) => {
-  ustensils.forEach((i) => {
+  const uniqueUstensils = new Set(ustensils);
+  uniqueUstensils.forEach((i) => {
     const button = document.createElement("p");
     button.classList.add("item");
     button.setAttribute("id-name", i);

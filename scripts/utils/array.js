@@ -19,6 +19,7 @@ const getRecettes = () => {
         let recipes = {
             id: r.id,
             name: r.name,
+            description: r.description,
             ingredients: handleIngredient(r),
             appareils: handleUpperCase(r.appliance),
             ustensils: handleUstensils(r.ustensils)
@@ -44,7 +45,6 @@ const getIngredients = () => {
         })
 
     })
-    data = data.filter((item, index) => data.indexOf(item) === index);
     return data;
 }
 
@@ -60,7 +60,6 @@ const getAppareils = () => {
     recipes.forEach((r) => {
         data.push(r.appliance)
     })
-    data = data.filter((item, index) => data.indexOf(item) === index);
     return data;
 }
 
@@ -81,7 +80,6 @@ const getUstensils = () => {
             data.push(capitalised);
         })
     })
-    data = data.filter((item, index) => data.indexOf(item) === index);
     return data;
 }
 

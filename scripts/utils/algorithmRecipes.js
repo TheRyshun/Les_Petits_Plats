@@ -69,7 +69,7 @@ const TagFilter = () => {
     }
   }
   return filteredRecettes;
-}
+};
 
 /**
 Function : searchFilter
@@ -79,16 +79,34 @@ Filters recipes according to the search query.
 @returns {array} searchFilteredRecipes - Recipes filtered by search.
 */
 
-const searchFilter = (searchQuery, recipes) => {
+const searchFilter = (searchQuery) => {
   const searchFilteredRecipes = [];
-  for (let i = 0; i < recipes.length; i++) {
-    let recipe = recipes[i];
-    if (recipe.name.toLowerCase().includes(searchQuery.toLowerCase())) {
+  const tagFilteredRecipes = TagFilter();
+
+  for (let i = 0; i < tagFilteredRecipes.length; i++) {
+    const recipe = tagFilteredRecipes[i];
+    let ingredientsMatch = false;
+
+    for (let j = 0; j < recipe.ingredients.length; j++) {
+      const ingredient = recipe.ingredients[j];
+
+      if (ingredient.ingredient.toLowerCase().includes(searchQuery.toLowerCase())) {
+        ingredientsMatch = true;
+        break;
+      }
+    }
+
+    if (
+      recipe.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      recipe.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      ingredientsMatch
+    ) {
       searchFilteredRecipes.push(recipe);
     }
   }
 
   return searchFilteredRecipes;
 };
+
 
 export { TagFilter, searchFilter };
